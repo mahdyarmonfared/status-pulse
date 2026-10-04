@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StatusPulse Studio | Uptime & SSL Monitor</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo-group">
+        <span class="logo-icon">📡</span>
+        <div>
+          <h1>StatusPulse Studio</h1>
+          <p class="subtitle">Zero-dependency Uptime Monitoring & SSL Cert Expiration Guard</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span id="globalStateBadge" class="badge badge-success">ALL SYSTEMS OPERATIONAL</span>
+        <span class="badge">Port 3015</span>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Quick Inspect Bar -->
+      <section class="card inspect-card">
+        <h2>Instant Target Inspector</h2>
+        <form id="inspectForm" class="form-row">
+          <input type="url" id="inspectUrl" placeholder="https://api.github.com" required value="https://api.github.com">
+          <button type="submit" class="btn btn-primary">⚡ Inspect URL</button>
+        </form>
+        <div id="inspectResult" class="inspect-result hidden"></div>
+      </section>
+
+      <!-- Monitored Targets Dashboard -->
+      <section class="card">
+        <div class="card-header">
+          <h2>Monitored Endpoints</h2>
+          <button id="showAddModalBtn" class="btn btn-secondary">+ Add Endpoint</button>
+        </div>
+        <div id="targetsGrid" class="targets-grid">
+          <div class="loading-spinner">Loading monitored endpoints...</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Add Target Modal -->
+  <div id="addModal" class="modal hidden">
+    <div class="modal-content card">
+      <h3>Add New Monitored Endpoint</h3>
+      <form id="addTargetForm">
+        <div class="form-group">
+          <label for="targetName">Endpoint Name</label>
+          <input type="text" id="targetName" placeholder="My Production API" required>
+        </div>
+        <div class="form-group">
+          <label for="targetUrl">Target URL</label>
+          <input type="url" id="targetUrl" placeholder="https://api.myserver.com/health" required>
+        </div>
+        <div class="form-group">
+          <label for="webhookUrl">Alert Webhook URL (Discord / Telegram / HTTP)</label>
+          <input type="url" id="webhookUrl" placeholder="https://discord.com/api/webhooks/...">
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="closeModalBtn" class="btn btn-outline">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Target</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
