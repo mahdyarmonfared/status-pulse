@@ -1,0 +1,29 @@
+{
+  "name": "status-pulse",
+  "version": "1.0.0",
+  "description": "Zero-dependency uptime monitoring, SSL certificate expiration engine & web studio with webhook alerts.",
+  "main": "src/core/index.js",
+  "bin": {
+    "status-pulse": "bin/status-pulse.js"
+  },
+  "scripts": {
+    "start": "node bin/status-pulse.js ui",
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [
+    "uptime",
+    "monitoring",
+    "ssl-certificate",
+    "latency",
+    "http-check",
+    "discord-webhook",
+    "telegram-bot",
+    "zero-dependency",
+    "cli"
+  ],
+  "author": "Mahdyar Monfared",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
